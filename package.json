@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "compile": "sass --load-path=node_modules public/styles.scss public/styles.css",
+    "watch:compile": "nodemon --exec npm run compile -w public/styles.scss",
+    "serve": "http-server ./public -p 3000"
+  },
+  "dependencies": {
+    "@aztlan/destination": "0.0.1-alpha.0",
+    "http-server": "^0.12.3",
+    "nodemon": "^2.0.7",
+    "sass": "^1.32.8"
+  }
+}

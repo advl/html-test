@@ -1,0 +1,12 @@
+@use "@aztlan/destination/dist/main.css";
+
+$heading-color:orange;
+
+h1 {
+  color:$heading-color;
+  font-family:Arial, Verdana, sans-serif;
+}
+
+p {
+  color:$heading-color;
+}
