@@ -1,0 +1,218 @@
+/* stylelint-disable scss/media-feature-value-dollar-variable -- We need to have a 1px delta */
+.l-center {
+  display: grid;
+}
+
+@media screen and (max-width: 899px) {
+  .l-center {
+    --grid-total-columns: 3;
+    grid-template-areas: "aside content aside2";
+    grid-template-columns: 0 100% 0;
+  }
+}
+@media screen and (min-width: 900px) {
+  .l-center {
+    --grid-total-columns: 3;
+    grid-template-areas: "aside content aside2";
+    grid-template-columns: auto var(--content-width, minmax(800px, 1000px)) auto;
+  }
+}
+.l-grid {
+  display: grid;
+  grid-gap: var(--grid-gap);
+}
+
+@media screen and (max-width: 899px) {
+  .l-grid {
+    --grid-total-columns: 3;
+    grid-template-columns: 100%;
+  }
+}
+@media screen and (min-width: 900px) {
+  .l-grid {
+    --grid-total-columns: 3;
+    grid-template-columns: repeat(auto-fill, minmax(var(--grid-item-width), 1fr));
+  }
+}
+.l-resgrid {
+  display: grid;
+  grid-gap: var(--grid-gap);
+}
+
+.l-resgrid.dense {
+  grid-auto-flow: dense;
+}
+
+@media screen and (max-width: 599px) {
+  .l-resgrid {
+    --grid-total-columns: var(--grid-columns-xs, 3);
+    grid-template-columns: repeat(var(--grid-columns-xs, 3), 1fr);
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .l-resgrid {
+    --grid-total-columns: var(--grid-columns-sm, var(--grid-columns-xs, 3));
+    grid-template-columns: repeat(var(--grid-columns-sm, 3), 1fr);
+  }
+}
+@media screen and (min-width: 900px) {
+  .l-resgrid {
+    --grid-total-columns: var(--grid-columns-md, 4);
+    grid-template-columns: repeat(var(--grid-columns-md, 3), 1fr);
+  }
+}
+.l-illustrated {
+  display: grid;
+  grid-auto-flow: dense;
+}
+
+@media screen and (max-width: 899px) {
+  .l-illustrated {
+    --grid-total-columns: 1;
+    grid-template-areas: "content" "illustration" "footer";
+  }
+}
+@media screen and (min-width: 900px) {
+  .l-illustrated {
+    grid-template-areas: "aside content illustration aside2", "aside footer illustration aside2";
+    grid-template-columns: 1fr var(--content-width, minmax(500px, 600px)) var(--illustration-width, minmax(300px, 500px)) 1fr;
+    /*
+    .i-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    } */
+  }
+
+  .l-illustrated.right {
+    grid-template-areas: "aside illustration content aside2" "aside illustration footer aside2";
+    grid-template-columns: 1fr var(--illustration-width, minmax(300px, 500px)) var(--content-width, minmax(500px, 600px)) 1fr;
+  }
+}
+.l-sideheaded {
+  display: grid;
+  grid-auto-flow: dense;
+}
+
+@media screen and (max-width: 899px) {
+  .l-sideheaded {
+    --grid-total-columns: 3;
+    grid-template-areas: "header" "content";
+  }
+}
+@media screen and (min-width: 900px) {
+  .l-sideheaded {
+    grid-template-areas: "aside header content aside2";
+    grid-template-columns: 1fr var(--header-width, minmax(300px, 450px)) var(--content-width, minmax(400px, 600px)) 1fr;
+    /*
+    .i-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    } */
+  }
+}
+.i-content {
+  grid-area: content;
+}
+
+.i-header {
+  grid-area: header;
+}
+
+.i-footer {
+  grid-area: footer;
+}
+
+.i-extra {
+  grid-area: extra;
+}
+
+.i-illustration {
+  grid-area: illustration;
+}
+
+/*
+  i-wide,
+   {
+    grid-column: 1 / span var(--grid-total-columns);
+  } */
+.i-aside {
+  grid-area: aside;
+}
+
+/* stylelint-disable scss/at-mixin-pattern -- Internal Mixins */
+.ggh25 {
+  grid-column-gap: 0.25rem;
+}
+
+.ggv25 {
+  grid-row-gap: 0.25rem;
+}
+
+.gg25 {
+  grid-gap: 0.25rem;
+}
+
+.ggh50 {
+  grid-column-gap: 0.5rem;
+}
+
+.ggv50 {
+  grid-row-gap: 0.5rem;
+}
+
+.gg50 {
+  grid-gap: 0.5rem;
+}
+
+.ggh1 {
+  grid-column-gap: 1rem;
+}
+
+.ggv1 {
+  grid-row-gap: 1rem;
+}
+
+.gg1 {
+  grid-gap: 1rem;
+}
+
+.ggh2 {
+  grid-column-gap: 2rem;
+}
+
+.ggv2 {
+  grid-row-gap: 2rem;
+}
+
+.gg2 {
+  grid-gap: 2rem;
+}
+
+.ggh4 {
+  grid-column-gap: 4rem;
+}
+
+.ggv4 {
+  grid-row-gap: 4rem;
+}
+
+.gg4 {
+  grid-gap: 4rem;
+}
+
+.g-dense {
+  grid-auto-flow: dense;
+}
+
+h1 {
+  color: orange;
+  font-family: Arial, Verdana, sans-serif;
+}
+
+p {
+  color: orange;
+}
+
+/*# sourceMappingURL=styles.css.map */
