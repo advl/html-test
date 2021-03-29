@@ -53,7 +53,7 @@ p {
       "image heading"
       "image price";
     &.right {
-      grid-template-columns:minmax(400px, 600px) 200px;
+      grid-template-columns:200px minmax(400px 600px);
       grid-template-areas:
         "heading image"
         "price image";
