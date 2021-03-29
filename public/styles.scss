@@ -1,6 +1,11 @@
 @use "@aztlan/destination/dist/main.css";
+@use "./reset";
 
 $heading-color:crimson;
+
+html {
+  font-size:16px;
+}
 
 h1 {
   color:$heading-color;
@@ -9,4 +14,66 @@ h1 {
 
 p {
   color:$heading-color;
+}
+
+.row {
+  background:linear-gradient(180deg, rgba(34,193,195,1) 0%, rgba(45,247,253,0.24271715522146353) 100%);
+
+  display:grid;
+
+  @media only screen and (min-width: 600px) {
+    grid-template-columns:1fr [content] minmax(600px, 800px) 1fr;
+  }
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns:0 [content] 1fr 0;
+  }   
+
+}
+
+.content {
+  background:#EFABEF;
+  padding:1em;
+  grid-column:content/span 1;
+
+  display:grid;
+  grid-gap:1em;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-areas:
+      "heading"
+      "image"
+      "price";
+
+  }   
+
+  @media only screen and (min-width: 600px) {
+    grid-template-columns:minmax(400px, 600px) 200px;
+    grid-template-areas:
+      "image heading"
+      "image price";
+    &.right {
+      grid-template-columns:minmax(400px, 600px) 200px;
+      grid-template-areas:
+        "heading image"
+        "price image";
+        background:#EFEFBB;
+    }
+  }
+
+
+  .heading {
+    background:red;
+    grid-area:heading;
+  }
+
+  .image {
+    background:orange;
+    grid-area:image;
+  }
+
+  .price {
+    background:blue;
+    grid-area:price;
+  }
 }

@@ -206,13 +206,146 @@
   grid-auto-flow: dense;
 }
 
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+html {
+  font-size: 16px;
+}
+
 h1 {
-  color: orange;
+  color: crimson;
   font-family: Arial, Verdana, sans-serif;
 }
 
 p {
-  color: orange;
+  color: crimson;
+}
+
+.row {
+  background: linear-gradient(180deg, #22c1c3 0%, rgba(45, 247, 253, 0.2427171552) 100%);
+  display: grid;
+}
+@media only screen and (min-width: 600px) {
+  .row {
+    grid-template-columns: 1fr [content] minmax(600px, 800px) 1fr;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .row {
+    grid-template-columns: 0 [content] 1fr 0;
+  }
+}
+
+.content {
+  background: #EFABEF;
+  padding: 1em;
+  grid-column: content/span 1;
+  display: grid;
+  grid-gap: 1em;
+}
+@media only screen and (max-width: 600px) {
+  .content {
+    grid-template-areas: "heading" "image" "price";
+  }
+}
+@media only screen and (min-width: 600px) {
+  .content {
+    grid-template-columns: minmax(400px, 600px) 200px;
+    grid-template-areas: "image heading" "image price";
+  }
+  .content.right {
+    grid-template-columns: minmax(400px, 600px) 200px;
+    grid-template-areas: "heading image" "price image";
+    background: #EFEFBB;
+  }
+}
+.content .heading {
+  background: red;
+  grid-area: heading;
+}
+.content .image {
+  background: orange;
+  grid-area: image;
+}
+.content .price {
+  background: blue;
+  grid-area: price;
 }
 
 /*# sourceMappingURL=styles.css.map */
